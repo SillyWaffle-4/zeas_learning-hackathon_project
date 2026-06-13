@@ -24,7 +24,7 @@ root.geometry("1800x900")
 root.configure(bg="tan")
 
 pygame.mixer.init()
-pygame.mixer.music.load("abcdefg.mp3")
+pygame.mixer.music.load("bg_music.mp3")
 pygame.mixer.music.play(-1)
 
 score = 0
