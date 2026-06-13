@@ -1,0 +1,80 @@
+import tkinter as tk
+import pygame
+from PIL import Image, ImageTk
+
+pygame.init()
+
+root = tk.Tk()
+root.geometry("600x400")
+
+canvas = tk.Canvas(root, width=600, height=400)
+canvas.pack()
+
+img = Image.open("images/Music_sheet.png")
+img = img.resize((500, 500))
+
+photo = ImageTk.PhotoImage(img)
+
+Music_sheet = canvas.create_image(300, 200, image=photo)
+
+candy1 = Image.open("images/music_candy.png")
+candy1_img = candy1.resize((90, 80))
+candy1_photo = ImageTk.PhotoImage(candy1_img)
+
+F = pygame.mixer.Sound("music/F.mp3")
+
+candy2 = Image.open("images/music_candy.png")
+candy2_img = candy2.resize((90, 80))
+candy2_photo = ImageTk.PhotoImage(candy2_img)
+
+candy3 = Image.open("images/music_candy.png")
+candy3_img = candy3.resize((90, 80))
+candy3_photo = ImageTk.PhotoImage(candy3_img)
+
+candy4 = Image.open("images/music_candy.png")
+candy4_img = candy4.resize((90, 80))
+candy4_photo = ImageTk.PhotoImage(candy4_img)
+
+F = pygame.mixer.Sound("music/F.mp3")
+A = pygame.mixer.Sound("music/A.mp3")
+C = pygame.mixer.Sound("music/C.mp3")
+E = pygame.mixer.Sound("music/E.mp3")
+click=1
+
+def note_clicked(event):
+    global click
+    # Show candy above the note
+    if click==1:
+        canvas.create_image(270,275, image=candy1_photo, tag="candy_tag")
+        F.play()
+        click+=1
+        return
+    if click==2:
+        canvas.create_image(350,205, image=candy2_photo, tag="candy_tag")
+        A.play()
+        click +=1
+        return
+    if click==3:
+        canvas.create_image(420,145, image=candy3_photo, tag="candy_tag")
+        C.play()
+        click +=1
+        return
+    if click==4:
+        canvas.create_image(490,85, image=candy3_photo, tag="candy_tag")
+        E.play()
+        click +=1
+        return
+    if click==5:
+        F.stop()
+        A.stop()
+        C.stop()
+        E.stop()
+        #image_label.pack_forget()
+        canvas.delete("candy_tag")
+        # Function to delete the specific image
+        click=1
+
+
+canvas.tag_bind(Music_sheet, "<Button-1>", note_clicked)
+
+root.mainloop()
