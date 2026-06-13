@@ -24,7 +24,7 @@ root.geometry("1800x900")
 root.configure(bg="tan")
 
 pygame.mixer.init()
-pygame.mixer.music.load("bg_music.mp3")
+pygame.mixer.music.load("music/bg_music.mp3")
 pygame.mixer.music.play(-1)
 
 score = 0
@@ -588,7 +588,7 @@ def show_final_score():
     Label(root, text=f"Final Score: {score}/11", font=("Arial", 40), bg="tan").place(
         x=550, y=400
     )
-    img = Image.open("party_hat.png")
+    img = Image.open("images/party_hat.png")
     img = img.resize((300, 300))
 
     photo = ImageTk.PhotoImage(img)
