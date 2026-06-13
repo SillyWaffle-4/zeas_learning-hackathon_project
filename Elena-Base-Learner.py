@@ -588,7 +588,7 @@ def show_final_score():
     Label(root, text=f"Final Score: {score}/11", font=("Arial", 40), bg="tan").place(
         x=550, y=400
     )
-    img = Image.open("Party-removebg-preview (1).png")
+    img = Image.open("party_hat.png")
     img = img.resize((300, 300))
 
     photo = ImageTk.PhotoImage(img)
